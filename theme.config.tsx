@@ -1,7 +1,36 @@
 import React from "react";
-import { DocsThemeConfig } from "nextra-theme-docs";
+import { DocsThemeConfig, useConfig } from "nextra-theme-docs";
+import { useRouter } from "next/router";
 
 const config: DocsThemeConfig = {
+  head: () => {
+    const { asPath, defaultLocale, locale } = useRouter();
+    const { frontMatter, title } = useConfig();
+    const url =
+      "https://react-native-ustyle.vercel.app" +
+      (defaultLocale === locale ? asPath : `/${locale}${asPath}`);
+    return (
+      <>
+        <title>{title || "RNU: React Native UStyle"}</title>
+        <meta
+          property="og:image"
+          content="https://react-native-ustyle.vercel.app/og.png"
+        />
+        <meta property="og:url" content={url} />
+        <meta
+          property="og:title"
+          content={frontMatter.title || "RNU: React Native UStyle"}
+        />
+        <meta
+          property="og:description"
+          content={
+            frontMatter.description ||
+            "The drop in replacement for React Native with superpowers"
+          }
+        />
+      </>
+    );
+  },
   // darkMode: false,
   nextThemes: {
     defaultTheme: "light",
