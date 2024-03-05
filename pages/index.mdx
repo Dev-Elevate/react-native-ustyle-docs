@@ -1,11 +1,28 @@
-# Introduction
- 
-Welcome to Nextra! This is a basic docs template. You can use it as a starting point for your own project :)
+---
+title: "RNU: react-native-ustyle"
+---
+import Fold1 from '../components/fold1'
+import Fold2 from '../components/fold2'
 
-## What is Nextra?
 
-A **simple**, **powerful** and **flexible** site generation framework with everything you love from Next.js.
+<Fold1/>
+<Fold2/>
 
-## Documentation
 
-The documentation is available at [https://nextra.site](https://nextra.site).
+```diff
+- import { View, Text } from 'react-native';
++ import { View, Text } from 'react-native-ustyle';
+```
+
+```js
+// App.tsx
+import { Text, View } from 'react-native-ustyle';
+
+export default function App() {
+  return (
+    <View bg="yellow" p={20} mx={20}>
+      <Text c="blue">Open up App.tsx to start working on your app!</Text>
+    </View>
+  );
+}
+```

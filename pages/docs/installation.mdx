@@ -1,0 +1,68 @@
+# Installation
+
+Installing react-native-ustyle is very easy. First, install the package from npm:
+
+```sh
+npm install react-native-ustyle babel-plugin-react-native-ustyle --save-dev
+```
+
+**OR**
+
+```sh
+yarn add react-native-ustyle babel-plugin-react-native-ustyle -D
+```
+
+### Setup babel-plugin
+
+Then, add the following to your `.babelrc` file:
+
+```json
+{
+  "plugins": ["react-native-ustyle"]
+}
+```
+or if you are using `babel.config.js`:
+
+```js
+module.exports = {
+  plugins: ['react-native-ustyle']
+}
+```
+
+### Setup Config File
+
+Finally setup the **rnu.config.ts** file:
+
+run this command on the root of your project where your **babel.config.js** is located:
+
+```bash
+npx rnu-init
+```
+
+This will create a **rnu.config.ts** file on the root of your project. Something looking like this:
+ 
+```ts
+import { createConfig } from 'react-native-ustyle';
+export const CONFIG = createConfig({
+  p: 'padding',
+  m: 'margin',
+  t: 'top',
+  b: 'bottom',
+  l: 'left',
+  r: 'right',
+  h: 'height',
+  w: 'width',
+  bg: 'backgroundColor',
+  c: 'color',
+  mx: 'marginHorizontal',
+  bc: 'borderColor',
+  bw: 'borderWidth',
+  mr: 'marginRight',
+} as const);
+
+type ConfigType = typeof CONFIG;
+
+declare module 'react-native-ustyle' {
+  interface ICustomConfig extends ConfigType {}
+}
+```

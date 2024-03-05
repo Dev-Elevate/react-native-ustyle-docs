@@ -1,15 +1,22 @@
 {
-  "index": "Introduction",
-  "another": "Another Page",
-  "advanced": "Advanced (A Folder)",
-  "about": {
-    "title": "About",
-    "type": "page"
+  "index": {
+    "type": "page",
+    "title": "Nextra",
+    "display": "hidden",
+    "theme": {
+      "darkMode": false,
+      "footer": true,
+      "sidebar": false
+    }
+  },
+  "docs": {
+    "type": "page",
+    "title": "Documentation"
   },
   "contact": {
-    "title": "Contact ↗",
+    "title": "Twitter ↗",
     "type": "page",
-    "href": "https://twitter.com/shuding_",
+    "href": "https://twitter.com/rohitistweet",
     "newWindow": true
   }
 }

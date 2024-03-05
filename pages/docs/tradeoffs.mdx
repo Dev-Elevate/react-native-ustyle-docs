@@ -1,0 +1,36 @@
+# Tradeoffs
+
+As of now, `react-native-ustyle` is a strict **build-time** only solution and intends to stay the same. This brings all the 
+tradeoffs that we find with build-time over run-time.
+
+So let's list down what won't work:
+
+### Dynamic styling:
+
+You can't change the style at runtime. For example you can't have a dark mode and a light mode and switch between them at runtime.
+
+```jsx
+// This won't work
+
+import { View } from "react-native-ustyle";
+
+const MyComponent = ({ darkMode }) => (
+  <View bg={darkMode ? 'black' : 'white' } />
+)
+```
+
+### Variable styles:
+
+You can't have styles that depend on some variable. For example you can't have a style that depends on the screen width.
+
+```jsx
+// This won't work
+
+import { View } from "react-native-ustyle";
+
+const variable_width = 300;
+
+const MyComponent = () => (
+  <View w={variable_width} />
+)
+```
