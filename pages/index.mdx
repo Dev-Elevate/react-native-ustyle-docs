@@ -6,9 +6,8 @@ import Fold2 from '../components/fold2'
 
 
 <Fold1/>
-<Fold2/>
 
-
+## What is react-native-ustyle?
 ```diff
 - import { View, Text } from 'react-native';
 + import { View, Text } from 'react-native-ustyle';
@@ -20,9 +19,14 @@ import { Text, View } from 'react-native-ustyle';
 
 export default function App() {
   return (
-    <View bg="yellow" p={20} mx={20}>
-      <Text c="blue">Open up App.tsx to start working on your app!</Text>
+    <View bg="$primary" p={20} mx={20}>
+      <Text c="$colors$blue500">Open up App.tsx to start working on your app!</Text>
     </View>
   );
 }
 ```
+
+<br/>
+<br/>
+<br/>
+<Fold2/>

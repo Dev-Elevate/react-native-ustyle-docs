@@ -1,3 +1,5 @@
+
+
 # Usage
 
 Using **react-native-ustyle** is very simple. Just replace all the `react-native` imports with `react-native-ustyle` and you are good to go.
@@ -8,14 +10,14 @@ Using **react-native-ustyle** is very simple. Just replace all the `react-native
 ```
 Here's a simple example:
 
-```js
+```js copy
 // App.tsx
 import { Text, View } from 'react-native-ustyle';
 
 export default function App() {
   return (
-    <View bg="yellow" p={20} mx={20}>
-      <Text c="blue">Open up App.tsx to start working on your app!</Text>
+    <View bg="$colors$yellow" p={20} mx={20}>
+      <Text c="$colors$blue">Open up App.tsx to start working on your app!</Text>
     </View>
   );
 }
@@ -23,27 +25,33 @@ export default function App() {
 
 Refer this Configuration section to know what prop maps to what style.
 
-:::note
 
-In `react-native-ustyle` this configuration file can be customized as per your need. This is just an example
+> In `react-native-ustyle` this configuration file can be customized as per your need. This is just an example
 
-:::
 
-```ts
+```ts copy
 // rnu.config.ts
 import { createConfig } from 'react-native-ustyle';
 export const CONFIG = createConfig({
-  p: 'padding',
-  t: 'top',
-  b: 'bottom',
-  l: 'left',
-  r: 'right',
-  h: 'height',
-  w: 'width',
-  bg: 'backgroundColor',
-  c: 'color',
-  m: 'margin',
-  mx: 'marginHorizontal',
+  aliases:{
+    p: 'padding',
+    t: 'top',
+    b: 'bottom',
+    l: 'left',
+    r: 'right',
+    h: 'height',
+    w: 'width',
+    bg: 'backgroundColor',
+    c: 'color',
+    m: 'margin',
+    mx: 'marginHorizontal',
+  },
+  tokens:{
+    colors:{
+      blue: '#0000FF',
+      yellow: '#FFFF00',
+    }
+  }
 } as const);
 
 type ConfigType = typeof CONFIG;

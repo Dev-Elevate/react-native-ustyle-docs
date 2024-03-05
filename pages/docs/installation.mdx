@@ -2,13 +2,13 @@
 
 Installing react-native-ustyle is very easy. First, install the package from npm:
 
-```sh
+```sh copy
 npm install react-native-ustyle babel-plugin-react-native-ustyle --save-dev
 ```
 
 **OR**
 
-```sh
+```sh copy
 yarn add react-native-ustyle babel-plugin-react-native-ustyle -D
 ```
 
@@ -16,14 +16,14 @@ yarn add react-native-ustyle babel-plugin-react-native-ustyle -D
 
 Then, add the following to your `.babelrc` file:
 
-```json
+```json copy
 {
   "plugins": ["react-native-ustyle"]
 }
 ```
 or if you are using `babel.config.js`:
 
-```js
+```js copy
 module.exports = {
   plugins: ['react-native-ustyle']
 }
@@ -35,29 +35,65 @@ Finally setup the **rnu.config.ts** file:
 
 run this command on the root of your project where your **babel.config.js** is located:
 
-```bash
+```bash copy
 npx rnu-init
 ```
 
 This will create a **rnu.config.ts** file on the root of your project. Something looking like this:
  
-```ts
+```ts copy
 import { createConfig } from 'react-native-ustyle';
 export const CONFIG = createConfig({
-  p: 'padding',
-  m: 'margin',
-  t: 'top',
-  b: 'bottom',
-  l: 'left',
-  r: 'right',
-  h: 'height',
-  w: 'width',
-  bg: 'backgroundColor',
-  c: 'color',
-  mx: 'marginHorizontal',
-  bc: 'borderColor',
-  bw: 'borderWidth',
-  mr: 'marginRight',
+  aliases:{
+    // add your custom aliases here
+    p: 'padding',
+    m: 'margin',
+    t: 'top',
+    b: 'bottom',
+    l: 'left',
+    r: 'right',
+    h: 'height',
+    w: 'width',
+    bg: 'backgroundColor',
+    c: 'color',
+    mx: 'marginHorizontal',
+    bc: 'borderColor',
+    bw: 'borderWidth',
+    mr: 'marginRight',
+    roundedTop: ['borderTopLeftRadius', 'borderTopRightRadius'],
+  },
+  tokens:{
+    global:{
+      // add your custom global tokens here you can access these by writing $token-name eg: $primary
+      primary: '#FF8FF3',
+      secondary: '#FF5733',
+    },
+    // add your custom tokens here you can access these by writing $token-scale$token-name eg: $space$1
+    colors:{
+      violet50: "#d79aff",
+      violet100: "#c676fb",
+      violet200: "#b555f4",
+      violet300: "#a337eb",
+      violet400: "#9116e3",
+      violet500: "#821bc7",
+      violet600: "#741eac",
+      violet700: "#652093",
+      violet800: "#57217b",
+      violet900: "#492064",
+    },
+    space:{
+      1: 4,
+      2: 8,
+      3: 12,
+      4: 16,
+      5: 20,
+      6: 24,
+      7: 28,
+      8: 32,
+      9: 36,
+      10: 40,
+    }
+  }
 } as const);
 
 type ConfigType = typeof CONFIG;

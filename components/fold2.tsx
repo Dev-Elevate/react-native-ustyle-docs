@@ -15,13 +15,21 @@ export default function Fold1() {
       <div className=" w-full grid grid-cols-2 gap-8 ">
         <Card>
           <CardHeader>
-            <CardTitle>
-              Simplified Development with react-native-ustyle
-            </CardTitle>
+            <CardTitle>Custom Utility Props Support</CardTitle>
           </CardHeader>
           <CardContent>
             <CardDescription>
               Adds configurable utility props for styling
+            </CardDescription>
+          </CardContent>
+        </Card>
+        <Card>
+          <CardHeader>
+            <CardTitle>Token Based Theming</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <CardDescription>
+              Define a set of tokens to be used in your styles
             </CardDescription>
           </CardContent>
         </Card>
@@ -42,6 +50,16 @@ export default function Fold1() {
           <CardContent>
             <CardDescription>
               Your app remains as fast and responsive as ever.
+            </CardDescription>
+          </CardContent>
+        </Card>
+        <Card>
+          <CardHeader>
+            <CardTitle>Zero Bundle Overhead</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <CardDescription>
+              Everything is dev-dependency so nothing gets added to your bundle.
             </CardDescription>
           </CardContent>
         </Card>
