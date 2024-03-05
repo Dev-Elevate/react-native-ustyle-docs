@@ -36,6 +36,11 @@ const config: DocsThemeConfig = {
             "The drop in replacement for React Native with superpowers"
           }
         />
+        <script
+          src="https://beamanalytics.b-cdn.net/beam.min.js"
+          data-token={process.env.NEXT_PUBLIC_BEAM_TOKEN}
+          async
+        ></script>
       </>
     );
   },
