@@ -3,6 +3,10 @@ import { DocsThemeConfig } from "nextra-theme-docs";
 
 const config: DocsThemeConfig = {
   // darkMode: false,
+  nextThemes: {
+    defaultTheme: "light",
+    enableSystem: false,
+  },
   logo: (
     <span className="flex flex-row font-bold">
       {/* <img src="/1.png" height={20} width={30} /> */}

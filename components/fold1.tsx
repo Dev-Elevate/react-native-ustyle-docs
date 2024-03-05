@@ -16,7 +16,14 @@ export default function Fold1() {
         <Link href="/docs/installation" prefetch passHref>
           <Button>Get Started</Button>
         </Link>
-        <Button variant="ghost">Give a Star ⭐️</Button>
+        <Link
+          href="https://github.com/Dev-Elevate/react-native-ustyle/stargazers"
+          target="_blank"
+          prefetch
+          passHref
+        >
+          <Button variant="ghost">Give a Star ⭐️</Button>
+        </Link>
       </div>
     </div>
   );
