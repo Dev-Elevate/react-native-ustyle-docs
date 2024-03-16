@@ -1,0 +1,83 @@
+# Virtual Components
+
+`react-native-ustyle` allows you to create styled components without actually creating a new React component. This is called 
+a **virtual component**.
+
+## What is a virtual component?
+
+A virtual component is a component that doesn't actually exist. You just define few theme properties in the rnu.config.ts file and 
+then you get a component that you can use in your code like any other component. But it doesn't actually exist in the code.
+
+## How to create a virtual component?
+
+To create a virtual component, you need to define a new components property in the rnu.config.ts file. For example, let's say you want to
+create a virtual component called `MyView` that has a background color and a width and is made using View from react-native. You can define it like this:
+
+```typescript
+// rnu.config.ts
+
+// rnu.config.ts
+import { createConfig } from 'react-native-ustyle';
+export const CONFIG = createConfig({
+  // ... rest of the config
+  components: {
+    MyView: {
+      tag: 'View',
+      baseStyle: {
+        backgroundColor: '#f0f0f0',
+        width: 300,
+      },
+    },
+  },
+} as const);
+
+type ConfigType = typeof CONFIG;
+
+declare module 'react-native-ustyle' {
+  interface ICustomConfig extends ConfigType {}
+}
+
+```
+
+Now you can use `MyView` in your code like this:
+
+```tsx
+import React from 'react';
+import { VC,Text } from 'react-native-ustyle';
+const { MyView } = VC;
+
+export const MyComponent = () => {
+  return (
+    <MyView>
+      <Text>Hello World</Text>
+    </MyView>
+  );
+};
+```
+
+## How does it work?
+
+When you use `MyView` in your code, `react-native-ustyle` will replace the `MyView` component in JSX with the `tag` that you defined along with the styles defined in the `rnu.config.ts` file. 
+This way you can use `MyView` like any other component, but it doesn't actually exist in the code.
+
+So in the above example, `MyView` will be replaced with `View` and the styles will be applied to it. So it will look like this:
+
+```tsx
+import React from 'react';
+import { View, Text } from 'react-native';
+
+export const MyComponent = () => {
+  return (
+    <View style={[rnuStyles0]}>
+      <Text>Hello World</Text>
+    </View>
+  );
+};
+
+const rnuStyles0 = {
+  backgroundColor: '#f0f0f0',
+  width: 300,
+};
+```
+
+> **Note**: This feature is in very early stage right now and can result into unexpected behaviour but make sure to report them on `GitHub Issues`.

@@ -5,6 +5,7 @@ import Fold1 from '../components/fold1'
 import Fold2 from '../components/fold2'
 
 
+
 <Fold1/>
 
 ## What is react-native-ustyle?
@@ -30,3 +31,89 @@ export default function App() {
 <br/>
 <br/>
 <Fold2/>
+
+## Introducing Virtual Components
+
+**What is a virtual component you might wonder?**
+
+With `react-native-ustyle` you can create a virtual component that doesn't really exist but renders your styles using the react-native component
+you specified in the config. It's something like a styled component but without the need to create a new component.
+
+```tsx
+// App.tsx
+import { VC } from 'react-native-ustyle';
+const { Heading } = VC;
+export default function App() {
+  return (
+    <VC.Center p={20} mx={20}>
+      <Heading size="md">This is a Heading</Heading>
+    </VC.Center>
+  );
+}
+```
+This is how to create a virtual component in the config file
+
+```ts
+// rnu.config.ts
+import { createConfig } from 'react-native-ustyle';
+export const CONFIG = createConfig({
+  aliases: {
+    p: 'padding',
+    // ... more aliases 
+    roundedRight: ['borderTopRightRadius', 'borderBottomRightRadius'],
+  },
+  tokens: {
+    global: {
+      primary: '#0000FF',
+      secondary: '#FFFF00',
+    },
+    space: {
+      'px': 1,  
+      // ... more space tokens
+    },
+    // ... more tokens
+  },
+  components: {
+    Center: {
+      tag: 'View',
+      baseStyle: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+      },
+    },
+    Heading:{
+      tag:"Text",
+      baseStyle:{
+        fontSize:20,
+        fontWeight:"bold",
+      },
+      variants:{
+        size:{
+          sm:{
+            fontSize:16,
+          },
+          md:{
+            fontSize:20,
+          },
+          lg:{
+            fontSize:24,
+          }
+        }
+      }
+    },
+  },
+} as const);
+
+type ConfigType = typeof CONFIG;
+
+declare module 'react-native-ustyle' {
+  interface ICustomConfig extends ConfigType {}
+}
+
+
+```
+Want to [Know more?](/docs/virtual-components)
+
+
+
