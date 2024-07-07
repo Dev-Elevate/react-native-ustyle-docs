@@ -22,7 +22,21 @@ const config: DocsThemeConfig = {
     return (
       <>
         <title>{title || "RNU: React Native UStyle"}</title>
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@rohitistweet" />
+        <meta name="twitter:title" content="RNU: React Native UStyle" />
+        <meta name="twitter:creator" content="@rohitistweet" />
+        <meta
+          property="twitter:description"
+          content="Experience React Native UStyle: a zero-runtime library with customizable utility props, token-based theming, and virtual components to enhance your app's UI."
+        />
         <meta property="og:image" content="https://rn-ustyle.xyz/og.png" />
+        <meta property="og:locale" content="en_US" />
+        <meta
+          property="og:image:alt"
+          content="React Native
+        UStyle"
+        />
         <meta property="og:url" content={url} />
         <meta
           name="description"
