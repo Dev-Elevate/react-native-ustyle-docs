@@ -30,6 +30,7 @@ const config: DocsThemeConfig = {
           property="twitter:description"
           content="Experience React Native UStyle: a zero-runtime library with customizable utility props, token-based theming, and virtual components to enhance your app's UI."
         />
+        <meta property="twitter:image" content="https://rn-ustyle.xyz/og.png" />
         <meta property="og:image" content="https://rn-ustyle.xyz/og.png" />
         <meta property="og:locale" content="en_US" />
         <meta
@@ -63,6 +64,7 @@ const config: DocsThemeConfig = {
   },
   nextThemes: {
     defaultTheme: "light",
+    // @ts-ignore
     enableSystem: false,
   },
   logo: (
