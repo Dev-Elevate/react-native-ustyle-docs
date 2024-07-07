@@ -11,6 +11,7 @@ const config: DocsThemeConfig = {
       };
     }
   },
+
   head: () => {
     const { asPath, defaultLocale, locale } = useRouter();
     const { frontMatter, title } = useConfig();
@@ -19,10 +20,14 @@ const config: DocsThemeConfig = {
       "https://rn-ustyle.xyz" +
       (defaultLocale === locale ? asPath : `/${locale}${asPath}`);
     return (
-      <>
+      <html lang="en">
         <title>{title || "RNU: React Native UStyle"}</title>
         <meta property="og:image" content="https://rn-ustyle.xyz/og.png" />
         <meta property="og:url" content={url} />
+        <meta
+          name="description"
+          content="Experience React Native UStyle: a zero-runtime library with customizable utility props, token-based theming, and virtual components to enhance your app's UI."
+        ></meta>
         <meta
           property="og:title"
           content={frontMatter.title || "RNU: React Native UStyle"}
@@ -39,7 +44,7 @@ const config: DocsThemeConfig = {
           data-token={process.env.NEXT_PUBLIC_BEAM_TOKEN}
           async
         ></script>
-      </>
+      </html>
     );
   },
   nextThemes: {
@@ -58,6 +63,7 @@ const config: DocsThemeConfig = {
           style={{
             marginRight: 10,
           }}
+          alt="React Native UStyle Logo"
         />
         React Native UStyle
       </span>
