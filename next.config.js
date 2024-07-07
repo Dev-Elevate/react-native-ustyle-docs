@@ -7,4 +7,8 @@ module.exports = withNextra({
   typescript: {
     ignoreBuildErrors: true,
   },
+  i18n: {
+    locales: ["en-US"],
+    defaultLocale: "en-US",
+  },
 });

@@ -11,7 +11,7 @@ const config: DocsThemeConfig = {
       };
     }
   },
-
+  i18n: [{ locale: "en-US", text: "English" }],
   head: () => {
     const { asPath, defaultLocale, locale } = useRouter();
     const { frontMatter, title } = useConfig();
@@ -20,7 +20,7 @@ const config: DocsThemeConfig = {
       "https://rn-ustyle.xyz" +
       (defaultLocale === locale ? asPath : `/${locale}${asPath}`);
     return (
-      <html lang="en">
+      <>
         <title>{title || "RNU: React Native UStyle"}</title>
         <meta property="og:image" content="https://rn-ustyle.xyz/og.png" />
         <meta property="og:url" content={url} />
@@ -44,31 +44,27 @@ const config: DocsThemeConfig = {
           data-token={process.env.NEXT_PUBLIC_BEAM_TOKEN}
           async
         ></script>
-      </html>
+      </>
     );
   },
   nextThemes: {
-    // forcedTheme: "light",
     defaultTheme: "light",
     enableSystem: false,
   },
-  logo: () => {
-    const { darkMode } = useConfig();
-    return (
-      <span className="flex flex-row font-bold items-center">
-        <img
-          src={"/1.png"}
-          height={20}
-          width={30}
-          style={{
-            marginRight: 10,
-          }}
-          alt="React Native UStyle Logo"
-        />
-        React Native UStyle
-      </span>
-    );
-  },
+  logo: (
+    <span className="flex flex-row font-bold items-center">
+      <img
+        src={"/1.png"}
+        height={20}
+        width={30}
+        style={{
+          marginRight: 10,
+        }}
+        alt="React Native UStyle Logo"
+      />
+      React Native UStyle
+    </span>
+  ),
   primaryHue: 266,
   primarySaturation: 56,
   project: {
