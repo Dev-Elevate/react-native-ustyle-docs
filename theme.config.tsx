@@ -21,6 +21,11 @@ const config: DocsThemeConfig = {
       (defaultLocale === locale ? asPath : `/${locale}${asPath}`);
     return (
       <>
+        <link
+          rel="icon"
+          type="image/x-icon"
+          href="https://rn-ustyle.xyz/favicon.ico"
+        />
         <title>{title || "RNU: React Native UStyle"}</title>
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@rohitistweet" />
@@ -59,6 +64,24 @@ const config: DocsThemeConfig = {
           data-token={process.env.NEXT_PUBLIC_BEAM_TOKEN}
           async
         ></script>
+        {/* <!-- Google tag (gtag.js) --> */}
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-ZJPPY7NP9V"
+        ></script>
+        {/* <script src="./gtmscript.js" async></script> */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+          window.dataLayer = window.dataLayer || [];
+          function gtag() {
+            dataLayer.push(arguments);
+          }
+          gtag("js", new Date());
+          gtag("config", "G-ZJPPY7NP9V");
+        `,
+          }}
+        />
       </>
     );
   },
